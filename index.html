@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 
 <html lang="zh-CN">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1.0">
-		<title>DevOps 公网导航</title>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>DevOps 公网导航</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#f1f5f9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;padding:20px;color:#1e293b}
@@ -40,113 +40,113 @@ h1{text-align:center;font-size:1.2em;color:#1e293b;margin-bottom:4px}
 .modal-btn-cancel{background:#f1f5f9;color:#475569}
 </style>
 
-	</head>
-	<body>
-		<h1>🌐 DevOps 公网导航</h1>
-		<p class="sub">户外公网访问 · 数据云端持久化</p>
+</head>
+<body>
+<h1>🌐 DevOps 公网导航</h1>
+<p class="sub">户外公网访问 · 数据云端持久化</p>
 
-		<div class="section">
-			  <div class="section-title">🎬 学习动态图</div>
-			    <div class="grid">
-				        <a class="card" href="arch-evolution.html">
-						      <div class="icon">🏗️</div>
-						            <div class="info"><div class="name">架构演进</div><div class="desc">单体→微服务→服务网格</div></div>
-							        </a>
-								    <a class="card" href="canary-flow.html">
-									          <div class="icon">🚀</div>
-										        <div class="info"><div class="name">金丝雀发布</div><div class="desc">Argo Rollouts + Istio</div></div>
-											    </a>
-											        <a class="card" href="fault-propagation.html">
-													      <div class="icon">⚡</div>
-													            <div class="info"><div class="name">故障传播与熔断</div><div class="desc">雪崩效应演示</div></div>
-														        </a>
-															  </div>
-		</div>
+<div class="section">
+  <div class="section-title">🎬 学习动态图</div>
+  <div class="grid">
+    <a class="card" href="arch-evolution.html">
+      <div class="icon">🏗️</div>
+      <div class="info"><div class="name">架构演进</div><div class="desc">单体→微服务→服务网格</div></div>
+    </a>
+    <a class="card" href="canary-flow.html">
+      <div class="icon">🚀</div>
+      <div class="info"><div class="name">金丝雀发布</div><div class="desc">Argo Rollouts + Istio</div></div>
+    </a>
+    <a class="card" href="fault-propagation.html">
+      <div class="icon">⚡</div>
+      <div class="info"><div class="name">故障传播与熔断</div><div class="desc">雪崩效应演示</div></div>
+    </a>
+  </div>
+</div>
 
-		<div class="section">
-			  <div class="section-title">🏠 内网快捷（在家时使用）</div>
-			    <div class="grid">
-				        <a class="card" href="http://10.20.50.75:8888" target="_blank">
-						      <div class="icon">🖥️</div>
-						            <div class="info"><div class="name">nav75 导航页</div><div class="desc">10.20.50.75:8888</div><div class="tag">内网访问</div></div>
-							        </a>
-								    <a class="card" href="http://10.20.50.75:9999" target="_blank">
-									          <div class="icon">📋</div>
-										        <div class="info"><div class="name">public-nav 本地</div><div class="desc">10.20.50.75:9999</div><div class="tag">内网访问</div></div>
-											    </a>
-											      </div>
-		</div>
+<div class="section">
+  <div class="section-title">🏠 内网快捷（在家时使用）</div>
+  <div class="grid">
+    <a class="card" href="http://10.20.50.75:8888" target="_blank">
+      <div class="icon">🖥️</div>
+      <div class="info"><div class="name">nav75 导航页</div><div class="desc">10.20.50.75:8888</div><div class="tag">内网访问</div></div>
+    </a>
+    <a class="card" href="http://10.20.50.75:9999" target="_blank">
+      <div class="icon">📋</div>
+      <div class="info"><div class="name">public-nav 本地</div><div class="desc">10.20.50.75:9999</div><div class="tag">内网访问</div></div>
+    </a>
+  </div>
+</div>
 
-		<div class="add-btn-row">
-			  <button class="add-btn" onclick="openModal()">➕ 添加自定义服务</button>
-		</div>
-		<div class="section" id="customSection" style="display:none">
-			  <div class="section-title">⭐ 自定义服务</div>
-			    <div class="grid" id="customGrid"></div>
-		</div>
+<div class="add-btn-row">
+  <button class="add-btn" onclick="openModal()">➕ 添加自定义服务</button>
+</div>
+<div class="section" id="customSection" style="display:none">
+  <div class="section-title">⭐ 自定义服务</div>
+  <div class="grid" id="customGrid"></div>
+</div>
 
-		<div class="modal-overlay" id="modalOverlay">
-			  <div class="modal">
-				      <h3>➕ 添加自定义服务</h3>
-				          <div class="form-group"><label>名称 *</label><input type="text" id="svcName" placeholder="例如：Grafana"></div>
-					      <div class="form-group"><label>地址 *</label><input type="text" id="svcUrl" placeholder="例如：https://grafana.example.com"></div>
-					          <div class="form-group"><label>备注</label><input type="text" id="svcTag" placeholder="例如：admin / admin"></div>
-						      <div class="form-group"><label>图标</label>
-							            <select id="svcIcon">
-									            <option value="🔗">🔗 通用</option><option value="📊">📊 监控</option>
-										            <option value="🐙">🐙 ArgoCD</option><option value="🐳">🐳 Harbor</option>
-											            <option value="🌐">🌐 网关</option><option value="💥">💥 混沌</option>
-												            <option value="🎬">🎬 动图</option><option value="📋">📋 文档</option>
-													          </select>
-														      </div>
-														          <div class="modal-btns">
-																        <button class="modal-btn modal-btn-cancel" onclick="closeModal()">取消</button>
-																	      <button class="modal-btn modal-btn-primary" onclick="saveService()">保存</button>
-																	          </div>
-																		    </div>
-		</div>
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h3>➕ 添加自定义服务</h3>
+    <div class="form-group"><label>名称 *</label><input type="text" id="svcName" placeholder="例如：Grafana"></div>
+    <div class="form-group"><label>地址 *</label><input type="text" id="svcUrl" placeholder="例如：https://grafana.example.com"></div>
+    <div class="form-group"><label>备注</label><input type="text" id="svcTag" placeholder="例如：admin / admin"></div>
+    <div class="form-group"><label>图标</label>
+      <select id="svcIcon">
+        <option value="🔗">🔗 通用</option><option value="📊">📊 监控</option>
+        <option value="🐙">🐙 ArgoCD</option><option value="🐳">🐳 Harbor</option>
+        <option value="🌐">🌐 网关</option><option value="💥">💥 混沌</option>
+        <option value="🎬">🎬 动图</option><option value="📋">📋 文档</option>
+      </select>
+    </div>
+    <div class="modal-btns">
+      <button class="modal-btn modal-btn-cancel" onclick="closeModal()">取消</button>
+      <button class="modal-btn modal-btn-primary" onclick="saveService()">保存</button>
+    </div>
+  </div>
+</div>
 
-		<script>
-			const API = 'https://public-nav-worker-api.yanagisawaroland.workers.dev/api/public';
-			let services = [];
+<script>
+const API = 'https://public-nav-worker-api.yanagisawaroland.workers.dev/api/public';
+let services = [];
 
-			async function load() {
-				  try { const r = await fetch(API); services = await r.json(); } catch(e) { services = []; }
-				  render();
-			}
+async function load() {
+  try { const r = await fetch(API); services = await r.json(); } catch(e) { services = []; }
+  render();
+}
 
-			async function save() {
-				  try { await fetch(API, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(services)}); } catch(e) {}
-			}
+async function save() {
+  try { await fetch(API, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(services)}); } catch(e) {}
+}
 
-			function render() {
-				  const sec = document.getElementById('customSection');
-				  const grid = document.getElementById('customGrid');
-				  if (!services.length) { sec.style.display = 'none'; return; }
-				  sec.style.display = 'block';
-				  grid.innerHTML = services.map((s,i) => `
-				      <a class="card custom-card" href="${s.url}" target="_blank">
-				            <button class="card-del" onclick="del(${i});event.preventDefault()">✕</button>
-					          <div class="icon">${s.icon}</div>
-						        <div class="info"><div class="name">${s.name}</div><div class="desc">${s.url}</div>${s.tag?`<div class="tag">${s.tag}</div>`:''}</div>
-							    </a>`).join('');
-			}
+function render() {
+  const sec = document.getElementById('customSection');
+  const grid = document.getElementById('customGrid');
+  if (!services.length) { sec.style.display = 'none'; return; }
+  sec.style.display = 'block';
+  grid.innerHTML = services.map((s,i) => `
+    <a class="card custom-card" href="${s.url}" target="_blank">
+      <button class="card-del" onclick="del(${i});event.preventDefault()">✕</button>
+      <div class="icon">${s.icon}</div>
+      <div class="info"><div class="name">${s.name}</div><div class="desc">${s.url}</div>${s.tag?`<div class="tag">${s.tag}</div>`:''}</div>
+    </a>`).join('');
+}
 
-			async function del(i) { services.splice(i,1); await save(); render(); }
-			function openModal() { document.getElementById('modalOverlay').classList.add('show'); document.getElementById('svcName').focus(); }
-			function closeModal() { document.getElementById('modalOverlay').classList.remove('show'); ['svcName','svcUrl','svcTag'].forEach(id=>document.getElementById(id).value=''); }
-			async function saveService() {
-				  const name=document.getElementById('svcName').value.trim();
-				  const url=document.getElementById('svcUrl').value.trim();
-				  const tag=document.getElementById('svcTag').value.trim();
-				  const icon=document.getElementById('svcIcon').value;
-				  if(!name||!url){alert('请填写名称和地址');return;}
-				  services.push({name,url,tag,icon});
-				  await save(); render(); closeModal();
-			}
-			document.getElementById('modalOverlay').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal();});
-			load();
-		</script>
+async function del(i) { services.splice(i,1); await save(); render(); }
+function openModal() { document.getElementById('modalOverlay').classList.add('show'); document.getElementById('svcName').focus(); }
+function closeModal() { document.getElementById('modalOverlay').classList.remove('show'); ['svcName','svcUrl','svcTag'].forEach(id=>document.getElementById(id).value=''); }
+async function saveService() {
+  const name=document.getElementById('svcName').value.trim();
+  const url=document.getElementById('svcUrl').value.trim();
+  const tag=document.getElementById('svcTag').value.trim();
+  const icon=document.getElementById('svcIcon').value;
+  if(!name||!url){alert('请填写名称和地址');return;}
+  services.push({name,url,tag,icon});
+  await save(); render(); closeModal();
+}
+document.getElementById('modalOverlay').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal();});
+load();
+</script>
 
-	</body>
+</body>
 </html>
